@@ -11,7 +11,7 @@ class Direction(Enum):
     RIGHT = 3
     LEFT = 4
 
-speed = 10
+speed = 50
 
 window_width = 1080
 window_height = 720
@@ -72,7 +72,7 @@ def get_food():
     global score, speed
     print(food_position)
     if abs(snake_position[0] - food_position[0]) < 20 and abs(snake_position[1] - food_position[1]) < 20:
-        score += 10
+        score += 1
         generate_new_food()
     else:
         snake_body.pop()
@@ -93,7 +93,7 @@ def game_over_message():
     rect.midtop = (window_width / 2, window_height / 2)
     window.blit(render, rect)
     pygame.display.flip()
-    time.sleep(5)
+    time.sleep(2)
     pygame.quit()
     exit(0)
 
